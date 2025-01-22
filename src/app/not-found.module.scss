@@ -13,8 +13,11 @@
 .icon {
 	font-size: 5em;
 	color: var(--error);
-	animation: name duration timing-function delay iteration-count direction fill-mode;
-	animation: shake 1s linear infinite;
+	
+	animation-name: shake;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
 }
 
 @keyframes shake {

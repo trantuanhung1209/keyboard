@@ -34,7 +34,7 @@
 
 	.description {
 		font-size: 0.8em;
-		font-weight: thin;
+		font-weight: 100;
 		color: var(--third-text);
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
@@ -85,7 +85,7 @@
 	}
 }
 
-.ItemCardVertical {
+.item-card-vertical {
 	width: var(--item-card-v-width);
 	display: flex;
 	flex-direction: column;
@@ -116,7 +116,7 @@
 			opacity: 1;
 		}
 
-		.popupHoverBlock {
+		.popup-hover-block {
 			width: 85%;
 			display: flex;
 			flex-direction: column;
@@ -142,7 +142,7 @@
 	}
 }
 
-.ItemCardHorizon {
+.item-card-horizon {
 	width: 100%;
 	height: var(--item-card-h-height);
 	display: flex;
@@ -200,7 +200,7 @@
 	}
 }
 
-@keyframes skeletonBackground {
+@keyframes skeleton-background {
 	0% {
 		background: linear-gradient(90deg, rgb(0 0 0 / 10%) 25%, rgb(0 0 0 / 20%) 50%, rgb(0 0 0 / 10%) 75%);
 		background-position: 100% 50%;
