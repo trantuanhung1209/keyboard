@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:scss": "stylelint \"src/**/*.scss\" --fix",
+    "format:scss": "prettier --write \"src/**/*.scss\"",
+    "lint:format": "npm run lint:scss && npm run format:scss"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -14,9 +17,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@next/env": "^15.1.5",
+    "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "mongodb": "^6.12.0",
     "next": "15.1.3",
+    "postcss": "^8.5.1",
+    "postcss-scss": "^4.0.9",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -24,6 +30,8 @@
     "tls": "^0.0.1"
   },
   "devDependencies": {
-    "@types/node": "^22.10.7"
+    "@types/node": "^22.10.7",
+    "stylelint": "^16.13.2",
+    "stylelint-config-standard": "^37.0.0"
   }
 }
