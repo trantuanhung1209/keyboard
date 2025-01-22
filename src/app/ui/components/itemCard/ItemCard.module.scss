@@ -1,0 +1,221 @@
+.container {
+	user-select: none;
+	position: relative;
+	background-color: white;
+	box-shadow: var(--item-card-box-shadow);
+	border-radius: var(--item-card-border-radius);
+	transition: all 0.3s ease-out;
+}
+
+.image {
+	position: relative;
+	aspect-ratio: 1;
+	overflow: hidden;
+}
+
+.details {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 0.75ch;
+
+	.name {
+		font-size: 1em;
+		font-weight: 600;
+		color: var(--secondary-text);
+		text-transform: uppercase;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.description {
+		font-size: 0.8em;
+		font-weight: thin;
+		color: var(--third-text);
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.price {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 0.5ch;
+		color: var(--primary-bg);
+		font-size: 1.1em;
+		font-weight: 600;
+	}
+}
+
+.skeleton {
+	.details {
+		* {
+			height: 2ch;
+			animation: skeletonBackground 1s infinite ease-out;
+		}
+
+		.name,
+		.description,
+		.price {
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+
+		.name {
+			width: 60%;
+		}
+
+		.description {
+			width: 45%;
+		}
+
+		.price {
+			width: 50%;
+		}
+	}
+	.image {
+		background-color: rgba(0, 0, 0, 0.2);
+		animation: skeletonBackground 1s infinite ease-out;
+	}
+}
+
+.ItemCardVertical {
+	width: var(--item-card-v-width);
+	display: flex;
+	flex-direction: column;
+	gap: 1ch;
+	font-size: var(--item-card-v-font-size);
+	aspect-ratio: var(--item-card-v-aspect-ratio);
+	padding: var(--item-card-v-padding);
+	box-shadow: var(--primary-box-shadow);
+	border-radius: var(--item-card-v-border-radius);
+
+	.image {
+		border-radius: var(--item-card-v-inner-border-radius);
+	}
+
+	.popupHoverContainer {
+		opacity: 0;
+		position: absolute;
+		inset: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.2);
+		z-index: 1;
+		transition: opacity 0.3s ease-out;
+		border-radius: var(--item-card-v-inner-border-radius);
+
+		&:hover {
+			opacity: 1;
+		}
+
+		.popupHoverBlock {
+			width: 85%;
+			display: flex;
+			flex-direction: column;
+			gap: 1ch;
+			font-size: 0.8em;
+		}
+	}
+
+	&.skeleton {
+		.image {
+			background-color: rgba(0, 0, 0, 0.2);
+			animation: skeletonBackground 1s infinite ease-out;
+		}
+		.details {
+			.name,
+			.description,
+			.price {
+				background-color: rgba(0, 0, 0, 0.2);
+				animation: skeletonBackground 1s infinite ease-out;
+			}
+		}
+	}
+}
+
+.ItemCardHorizon {
+	width: 100%;
+	height: var(--item-card-h-height);
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 2ch;
+	font-size: var(--item-card-h-font-size);
+	padding: var(--item-card-h-padding);
+	box-shadow: var(--primary-box-shadow);
+	border-radius: var(--item-card-h-border-radius);
+
+	&:hover {
+		background-color: rgb(0, 0, 0, 0.5);
+		.details {
+			.name,
+			.description {
+				color: var(--primary-text);
+			}
+
+			.price {
+				color: var(--secondary-bg);
+			}
+		}
+	}
+
+	.image {
+		border-radius: var(--item-card-h-inner-border-radius);
+		height: 100%;
+		min-width: calc(var(--item-card-h-height) - var(--item-card-h-padding) * 2);
+		aspect-ratio: 1;
+	}
+
+	.details {
+		font-size: 2.5em;
+	}
+
+	&.skeleton {
+		.image {
+			background-color: rgba(0, 0, 0, 0.2);
+			animation: skeletonBackground 1s infinite ease-out;
+		}
+		.details {
+			width: 100%;
+			height: 100%;
+			.name,
+			.description,
+			.price {
+				background-color: rgba(0, 0, 0, 0.2);
+				animation: skeletonBackground 1s infinite ease-out;
+			}
+		}
+	}
+}
+
+@keyframes skeletonBackground {
+	0% {
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1) 75%);
+		background-position: 100% 50%;
+		background-size: 200% 100%;
+	}
+	100% {
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1) 75%);
+		background-position: 300% 50%;
+		background-size: 200% 100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.popupHoverContainer {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	.description {
+		-webkit-line-clamp: 1;
+	}
+}
